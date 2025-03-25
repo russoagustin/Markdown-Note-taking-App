@@ -8,12 +8,14 @@ import lombok.Setter;
 @Getter @Setter
 public class Note {
     private Integer id;
-    private String text;
+    private String name;
+    private byte[] content;
 
-    public Note(String text) {
-        this.text = text;
+    public Note(String name, byte[] content) {
+        this.name = name;
+        this.content = content;
     }
-    public Note(Integer id,String text) {
-        this.text = text;
+    public Note(Integer id,String name) {
+        this.name = name;
     }
 }

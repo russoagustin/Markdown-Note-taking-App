@@ -13,14 +13,14 @@ import com.russo.notes.entity.Note;
 public class NotesRepository implements INotesRepository {
 
     private static final String SELECT_BY_ID = "SELECT * FROM notes WHERE id = ?";
-    private static final String INSERT = "INSERT INTO notes (text) VALUES (?)";
+    private static final String INSERT = "INSERT INTO notes (name,content) VALUES (?,?)";
     @Autowired
     JdbcTemplate jdbcTemplate;
 
     RowMapper<Note> rowMapper = ((rs, rowNum)->
         new Note(
         rs.getInt("id"),
-        rs.getString("text")
+        rs.getString("name")
     ));
 
     @Override
@@ -30,7 +30,8 @@ public class NotesRepository implements INotesRepository {
 
     @Override
     public Note save(Note note) {
-        return jdbcTemplate.update(INSERT,note.getText());
+        jdbcTemplate.update(INSERT,note.getName(),note.getContent());
+        return jdbcTemplate.queryForObject("Select * from notes where name like ?", rowMapper, note.getName());
     }
     
 
