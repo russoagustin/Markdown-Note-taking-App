@@ -9,9 +9,14 @@ import lombok.Setter;
 public class Note {
     private Integer id;
     private String name;
-    private byte[] content;
+    private String content;
 
-    public Note(String name, byte[] content) {
+    public Note(String name, String content) {
+        this.name = name;
+        this.content = content;
+    }
+    public Note(Integer id,String name, String content) {
+        this.id = id;
         this.name = name;
         this.content = content;
     }

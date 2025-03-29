@@ -20,7 +20,8 @@ public class NotesRepository implements INotesRepository {
     RowMapper<Note> rowMapper = ((rs, rowNum)->
         new Note(
         rs.getInt("id"),
-        rs.getString("name")
+        rs.getString("name"),
+        rs.getString("content")
     ));
 
     @Override

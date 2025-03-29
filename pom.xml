@@ -61,6 +61,12 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.33</version>
 		</dependency>
+		<dependency>
+    	<groupId>org.commonmark</groupId>
+    		<artifactId>commonmark</artifactId>
+    		<version>0.24.0</version>
+		</dependency>
+		
 
 	</dependencies>
 
