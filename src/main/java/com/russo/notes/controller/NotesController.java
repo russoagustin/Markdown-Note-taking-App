@@ -10,7 +10,7 @@ import com.russo.notes.repository.INotesRepository;
 import java.io.IOException;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
-import java.sql.SQLException;
+import java.util.List;
 import java.util.Optional;
 
 import org.commonmark.node.Node;
@@ -21,7 +21,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController()
@@ -68,6 +67,11 @@ public class NotesController {
         String html = renderer.render(document);
 
         return html;
+    }
+
+    @GetMapping()
+    public ResponseEntity<List<Note>> listAll(){
+        return ResponseEntity.ok(notesRepository.getAll());
     }
     
 

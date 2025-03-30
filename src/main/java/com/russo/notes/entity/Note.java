@@ -1,5 +1,7 @@
 package com.russo.notes.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,6 +11,7 @@ import lombok.Setter;
 public class Note {
     private Integer id;
     private String name;
+    @JsonIgnore
     private String content;
 
     public Note(String name, String content) {
