@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.russo.notes.entity.Note;
 
@@ -32,6 +33,7 @@ public class NotesRepository implements INotesRepository {
     }
 
     @Override
+    @Transactional
     public Note save(Note note) {
         jdbcTemplate.update(INSERT,note.getName(),note.getContent());
         return jdbcTemplate.queryForObject("Select * from notes where name like ?", rowMapper, note.getName());

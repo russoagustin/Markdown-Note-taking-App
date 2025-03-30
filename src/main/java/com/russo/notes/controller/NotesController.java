@@ -64,9 +64,23 @@ public class NotesController {
         Parser parser = Parser.builder().build();
         Node document = parser.parse(content);
         HtmlRenderer renderer = HtmlRenderer.builder().build();
+        
         String html = renderer.render(document);
 
-        return html;
+        //return html;
+
+        String htmlWithStyles = """
+        <html>
+        <head>
+            <link rel="stylesheet" type="text/css" href="/mdstyle.css">
+        </head>
+        <body>
+            %s
+        </body>
+        </html>
+        """.formatted(html);
+
+        return htmlWithStyles;
     }
 
     @GetMapping()

@@ -1,0 +1,17 @@
+body {
+    margin-left: 50px;
+    margin-right: 20%;
+    margin-top: 20px;
+    color: aliceblue;
+    background-color: #444;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 20px;
+}
+
+h1, h2, h3 {
+    color: rgb(161, 206, 183);
+}
+
+li{
+    list-style-type: disc;
+}
